@@ -16,3 +16,4 @@
 </ul>
 <p>Serie: <%= @book.serie.name %></p>
 <p>Publisher: <%= @book.publisher.name %></p>
+<p>Publishing date: <%= @book.pubdate.to_formatted_s(:date) %></p>
