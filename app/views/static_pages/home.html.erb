@@ -1,2 +1,10 @@
-<h1>Welcome</h1>
-<p><%= @books_count %> books in library</p>
+<div class="center jumbotron">
+	<h1>Library</h1>
+	<h2>Browse <%= @books_count %> books</h2>
+
+	<p>
+	<%= link_to "Books", books_path, class: "btn btn-lg btn-primary" %>
+	<%= link_to "Authors", authors_path, class: "btn btn-lg btn-primary" %>
+	<%= link_to "Series", series_path, class: "btn btn-lg btn-primary" %>
+	</p>
+</div>
