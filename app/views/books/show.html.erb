@@ -1,19 +1,54 @@
-<h1><%= @book.title %></h1>
-<ul>
-	<% @book.authors.each do |author| %>
+<div class="page-header">
+	<h1>
+		<span class="glyphicon glyphicon-book"></span>
+		<%= @book.title %>
+	</h1>
+</div>
+<div class="row">
+	<h2>
+		<span class="glyphicon glyphicon-user"></span>
+		<%= "Author".pluralize(@book.authors.count) %>
+	</h2>
+	<ul>
+		<% @book.authors.each do |author| %>
 		<li><%= author.name %></li>
+		<% end %>
+	</ul>
+	<% if @book.serie %>
+	<h2>
+		<span class="glyphicon glyphicon-list"></span>
+		Serie
+	</h2>
+	<div>
+		<%= link_to @book.serie.name, @book.serie %>
+		<span class="badge"><%= @book.series_index.to_i %></span>
+	</div>
 	<% end %>
-</ul>
-<ul>
-	<% @book.languages.each do |language| %>
-		<li><%= language.lang_code %></li>
-	<% end %>
-</ul>
-<ul>
-	<% @book.tags.each do |tag| %>
-		<li><%= tag.name %></li>
-	<% end %>
-</ul>
-<p>Serie: <%= @book.serie.name %></p>
-<p>Publisher: <%= @book.publisher.name %></p>
-<p>Publishing date: <%= @book.pubdate.to_formatted_s(:date) %></p>
+	<h2>
+		<span class="glyphicon glyphicon-globe"></span>
+		<%= "Language".pluralize(@book.languages.count) %>
+	</h2>
+	<div>
+		<% @book.languages.each do |language| %>
+		<%= language.lang_code %>
+		<% end %>
+	</div>
+	<h2>
+		<span class="glyphicon glyphicon-tags"></span>
+		<%= "Tag".pluralize(@book.tags.count) %>
+	</h2>
+	<div>
+		<% @book.tags.each do |tag| %>
+		<span class="label label-info"><%= tag.name %></span>
+		<% end %>
+	</div>
+	<h2>Details</h2>
+	<ul>
+		<% if @book.pubdate %>
+		<li><strong>Publishing date</strong> <%= @book.pubdate.to_formatted_s(:date) %></li>
+		<% end %>
+		<% if @book.publisher %>
+		<li><strong>Publisher</strong> <%= @book.publisher.name %></li>
+		<% end %>
+	</ul>
+</div>
