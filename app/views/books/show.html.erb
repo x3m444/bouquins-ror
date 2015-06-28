@@ -1,1 +1,7 @@
 <h1><%= @book.title %></h1>
+<ul>
+	<% @book.authors.each do |author| %>
+		<li><%= author.name %></li>
+	<% end %>
+</ul>
+<p>Serie: <%= @book.serie.name %>
