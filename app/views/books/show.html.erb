@@ -4,4 +4,15 @@
 		<li><%= author.name %></li>
 	<% end %>
 </ul>
-<p>Serie: <%= @book.serie.name %>
+<ul>
+	<% @book.languages.each do |language| %>
+		<li><%= language.lang_code %></li>
+	<% end %>
+</ul>
+<ul>
+	<% @book.tags.each do |tag| %>
+		<li><%= tag.name %></li>
+	<% end %>
+</ul>
+<p>Serie: <%= @book.serie.name %></p>
+<p>Publisher: <%= @book.publisher.name %></p>
