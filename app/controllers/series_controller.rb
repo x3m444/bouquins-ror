@@ -8,6 +8,10 @@ class SeriesController < ApplicationController
 	def index
 		@series = Serie.paginate(page: params[:page])
 		@title = "Series"
+		respond_to do |format|
+			format.html 
+			format.js
+		end
 	end
 
 end

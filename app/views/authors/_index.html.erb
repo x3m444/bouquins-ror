@@ -1,0 +1,9 @@
+<%= will_paginate %>
+
+<ul class="authors">
+<% @authors.each do |author| %>
+	<li><%= link_to author.name, author %></li>
+<% end %>
+</ul>
+
+<%= will_paginate %>

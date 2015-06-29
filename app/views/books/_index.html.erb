@@ -1,0 +1,12 @@
+<%= will_paginate %>
+
+<ul class="books">
+	<% @books.each do |book| %>
+		<li>
+		<%= link_to book.title, book %>
+		</li>
+	<% end %>
+</ul>
+
+<%= will_paginate %>
+

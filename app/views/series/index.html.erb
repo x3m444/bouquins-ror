@@ -1,11 +1,2 @@
 <h1>Series</h1>
-
-<%= will_paginate %>
-
-<ul class="series">
-<% @series.each do |serie| %>
-	<li><%= link_to serie.name, serie %></li>
-<% end %>
-</ul>
-
-<%= will_paginate %>
+<%= render 'series/index' %>

@@ -3,8 +3,10 @@
 	<h2>Browse <%= @books_count %> books</h2>
 
 	<p>
-	<%= link_to "Books", books_path, class: "btn btn-lg btn-primary" %>
-	<%= link_to "Authors", authors_path, class: "btn btn-lg btn-primary" %>
-	<%= link_to "Series", series_path, class: "btn btn-lg btn-primary" %>
+	<%= link_to "Books", books_path, class: "btn btn-lg btn-primary", remote: true %>
+	<%= link_to "Authors", authors_path, class: "btn btn-lg btn-primary", remote: true %>
+	<%= link_to "Series", series_path, class: "btn btn-lg btn-primary", remote: true %>
 	</p>
+</div>
+<div class="center container-fluid" id="items">
 </div>
