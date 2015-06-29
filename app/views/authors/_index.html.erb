@@ -1,9 +1,16 @@
-<%= will_paginate %>
+<%= will_paginate class: "center" %>
 
-<ul class="authors">
+<table class="table table-striped authors">
+	<tr>
+		<th>Name</th>
+		<th>Books</th>
+	</tr>
 <% @authors.each do |author| %>
-	<li><%= link_to author.name, author %></li>
+	<tr>
+		<td><span class="glyphicon glyphicon-user"></span><%= link_to author.name, author %></td>
+		<td><%= author.books.count %></td>
+	</tr>
 <% end %>
-</ul>
+</table>
 
-<%= will_paginate %>
+<%= will_paginate class: "center" %>

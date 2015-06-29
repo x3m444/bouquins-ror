@@ -1,12 +1,27 @@
-<%= will_paginate %>
+<%= will_paginate class: "center" %>
 
-<ul class="books">
-	<% @books.each do |book| %>
-		<li>
-		<%= link_to book.title, book %>
-		</li>
+<table class="table table-striped authors">
+	<tr>
+		<th>Name</th>
+		<th>Authors</th>
+		<th>Serie</th>
+	</tr>
+<% @books.each do |book| %>
+	<tr>
+		<td><span class="glyphicon glyphicon-book"></span><%= link_to book.title, book %></td>
+		<td>
+	<% book.authors.each do |author| %>
+			<span class="glyphicon glyphicon-user"></span><%= link_to author.name, author %>
 	<% end %>
-</ul>
+		</td>
+		<td>
+	<% if book.serie %>
+			<span class="glyphicon glyphicon-list"></span><%= link_to book.serie.name, book.serie %>
+			<span class="badge"><%= book.series_index.to_i %></span>
+	<% end %>
+		</td>
+	</tr>
+<% end %>
+</table>
 
-<%= will_paginate %>
-
+<%= will_paginate class: "center" %>

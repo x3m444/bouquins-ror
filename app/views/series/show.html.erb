@@ -18,8 +18,10 @@ authors = Array.new
 @serie.books.each do |book|
 	authors.concat book.authors
 end
-authors.uniq!.sort! { |x,y| x.sort <=> y.sort }
-if authors %>
+if authors
+	authors.uniq!
+	authors.sort! { |x,y| x.sort <=> y.sort }
+%>
 <h2>
 	<span class="glyphicon glyphicon-user"></span>
 	<%= "Author".pluralize(authors.count) %>

@@ -1,9 +1,33 @@
-<%= will_paginate %>
+<%= will_paginate class: "center" %>
 
-<ul class="series">
+<table class="table table-striped series">
+	<tr>
+		<th>Name</th>
+		<th>Authors</th>
+		<th>Books</th>
+	</tr>
 <% @series.each do |serie| %>
-	<li><%= link_to serie.name, serie %></li>
+	<tr>
+		<td><span class="glyphicon glyphicon-list"></span><%= link_to serie.name, serie %></td>
+		<td>
+	<%
+	authors = Array.new
+	serie.books.each do |book|
+		authors.concat book.authors
+	end
+	unless authors.nil?
+		#authors.uniq!.sort! { |x,y| x.sort <=> y.sort }
+		authors.uniq!
+		authors.sort! { |x,y| x.sort <=> y.sort }
+		authors.each do |author| 
+	%>
+			<span class="glyphicon glyphicon-user"></span><%= link_to author.name, author %>
+	<%	end 
+	end %>
+		</td>
+		<td><%= serie.books.count %></td>
+	</tr>
 <% end %>
-</ul>
+</table>
 
-<%= will_paginate %>
+<%= will_paginate class: "center" %>
