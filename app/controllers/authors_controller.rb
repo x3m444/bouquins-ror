@@ -1,4 +1,7 @@
 class AuthorsController < ApplicationController
+	include PreferencesHelper
+
+	before_action :preferences, only: :index
 
 	def show
 		@author = Author.find(params[:id])
@@ -6,7 +9,8 @@ class AuthorsController < ApplicationController
 	end
 
 	def index
-		@authors = Author.paginate(page: params[:page])
+		@authors = Author.where(initial_filter).order(:sort)
+			.paginate(page: params[:page], per_page: session[:current_per_page])
 		@title = "Authors"
 		respond_to do |format|
 			format.html 

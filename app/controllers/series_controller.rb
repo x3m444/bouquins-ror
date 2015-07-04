@@ -1,4 +1,7 @@
 class SeriesController < ApplicationController
+	include PreferencesHelper
+
+	before_action :preferences, only: :index
 
 	def show
 		@serie = Serie.find(params[:id])
@@ -6,7 +9,8 @@ class SeriesController < ApplicationController
 	end
 
 	def index
-		@series = Serie.paginate(page: params[:page])
+		@series = Serie.where(initial_filter).order(:sort)
+			.paginate(page: params[:page], per_page: session[:current_per_page])
 		@title = "Series"
 		respond_to do |format|
 			format.html 

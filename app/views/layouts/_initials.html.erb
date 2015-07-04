@@ -1,0 +1,10 @@
+<% initials = ['0'] + ('A'..'Z').to_a %>
+<div class="center">
+	<ul class="pagination">
+<% initials.each do |i| %>
+	<%= content_tag :li, class: (i == session[:initial] ? "active": nil) do %>
+		<%= link_to i, url_for(initial: i), remote: true %>
+	<% end %>
+<% end %>
+	</ul>
+</div>
