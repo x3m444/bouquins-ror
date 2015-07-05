@@ -1,0 +1,6 @@
+<h2><%= pluralize(@authors.count, "co-author") %></h2>
+<ul>
+<% @authors.each do |a| %>
+	<li><%= link_to a.name, a %></li>
+<% end %>
+</ul>

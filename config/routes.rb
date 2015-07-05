@@ -6,7 +6,13 @@ Rails.application.routes.draw do
 	  get 'cover', on: :member
   end
   get '/books/:id/data/:data_format/' => 'data#show', as: "book_data"
-  resources :authors, only: [ :index, :show ]
+  resources :authors, only: [ :index, :show ] do
+	  member do
+		  get 'titles'
+		  get 'series'
+		  get 'authors'
+	  end
+  end
   resources :series, only: [ :index, :show ]
   #get 'series/:id' => 'series#show'
   #get 'series' => 'series#index'
