@@ -19,4 +19,8 @@ class Book < ActiveRecord::Base
 
 	has_one :book_serie_link, foreign_key: "book"
 	has_one :serie, through: :book_serie_link
+
+	def has_cover?
+		has_cover == 1
+	end
 end
