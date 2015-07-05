@@ -1,0 +1,10 @@
+<%
+is_single = d.book.data.count == 1
+btn_class = is_single ? "btn btn-success" : nil
+%>
+<%= link_to book_data_path(id: d.book, data_format: d.format), class: btn_class do %>
+<% if is_single %>
+	<span class="glyphicon glyphicon-download-alt"></span> Download
+<% end %>
+	<%= d.format %> (<%= number_to_human_size(d.uncompressed_size) %>)
+<% end %>

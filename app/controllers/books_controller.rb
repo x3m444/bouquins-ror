@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 	include PreferencesHelper
+	include ERB::Util
 
 	before_action :preferences, only: :index
 
@@ -16,6 +17,11 @@ class BooksController < ApplicationController
 			format.html 
 			format.js
 		end
+	end
+
+	def cover
+		@book = Book.find(params[:id])
+		redirect_to "/calibre/#{url_encode(@book.path)}/cover.jpg"
 	end
 
 end

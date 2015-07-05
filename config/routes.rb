@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
 
-  resources :books, only: [ :index, :show ]
+  resources :books, only: [ :index, :show ] do
+	  get 'cover', on: :member
+  end
+  get '/books/:id/data/:data_format/' => 'data#show', as: "book_data"
   resources :authors, only: [ :index, :show ]
   resources :series, only: [ :index, :show ]
   #get 'series/:id' => 'series#show'

@@ -1,0 +1,15 @@
+<% if @book.data.count == 1 %>
+	<%= render partial: 'layouts/dl_link', locals: { d: @book.data.first } %>
+<% elsif @book.data.count > 1 %>
+	<div class="btn-group">
+		<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span class="glyphicon glyphicon-download-alt"></span>
+			Download <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+	<% @book.data.each do |d| %>
+		<li><%= render partial: 'layouts/dl_link', locals: { d: d } %></li>
+	<% end %>
+		</ul>
+	</div>
+<% end %>

@@ -1,8 +1,13 @@
 <div class="page-header">
-	<h1>
-		<span class="glyphicon glyphicon-book"></span>
-		<%= @book.title %>
-	</h1>
+	<div class="row">
+		<div class="col-xs-12 col-md-9">
+			<h1>
+				<span class="glyphicon glyphicon-book"></span>
+				<%= @book.title %>
+			</h1>
+		</div>
+		<div class="col-xs-12 col-md-3 text-right"> <%= render "layouts/book_dl" %> </div>
+	</div>
 </div>
 <div class="row">
 <% if @book.has_cover? %>
@@ -14,7 +19,7 @@
 		</h2>
 		<ul>
 			<% @book.authors.each do |author| %>
-			<li><%= author.name %></li>
+			<li><%= link_to author.name, author %></li>
 			<% end %>
 		</ul>
 		<% if @book.serie %>
@@ -57,7 +62,7 @@
 	</div>
 <% if @book.has_cover? %>
 	<div class="col-xs-12 col-md-6">
-		<img alt="No cover" class="img-responsive img-rounded" src="<%= "/calibre/#{url_encode(@book.path)}/cover.jpg" %>"/>
+		<%= image_tag(cover_book_path(@book), alt: "No cover", class: "img-responsive img-rounded") %>
 	</div>
 <% end %>
 </div>
