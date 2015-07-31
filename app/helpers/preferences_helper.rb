@@ -9,7 +9,7 @@ module PreferencesHelper
 	def preferences
 		session[:current_per_page] = params[:per_page] ? params[:per_page].to_i : (session[:current_per_page] || WillPaginate.per_page)
 		if params[:initial] 
-			session[:initial] = (session[:initial] == params[:initial] ? nil : params[:initial])
+			session[:initial] = (params[:initial] == "reset" ? nil : params[:initial])
 		end
 	end
 
