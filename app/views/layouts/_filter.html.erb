@@ -5,8 +5,16 @@
 		<% end %>
 	</div>
 	<div class="panel-body collapse" id="filterContent">
-		<%= yield(:latest_filter) %>
 		<%= render'layouts/initials' %>
 		<%= render'layouts/perpage' %>
+		<%= yield(:latest_filter) %>
+		<%= form_tag(method: :get, remote: true) do %>
+			<div class="input-group">
+				<span class="input-group-btn">
+					<%= button_tag "Seach", class: "btn btn-default" %>
+				</span>
+				<%= text_field_tag(:s, nil, placeholder: "Search for...", class: "form-control") %>
+			</div>
+		<% end %>
 	</div>
 </div>

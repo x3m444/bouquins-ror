@@ -10,7 +10,13 @@ class BooksController < ApplicationController
 	end
 
 	def index
-		@books = Book.where(initial_filter).order(sort_col)
+		filters = initial_filter
+		if params[:s]
+			filters[0] << " AND sort like ?"
+			filters.push("%#{params[:s]}%")
+		end
+		puts filters
+		@books = Book.where(filters).order(sort_col)
 			.paginate(page: params[:page], per_page: session[:current_per_page])
 		@title = "Books"
 		respond_to do |format|
