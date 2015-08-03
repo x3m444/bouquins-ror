@@ -1,15 +1,10 @@
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h3 class="panel-title">Filter</h3>
-	</div>
-	<div class="panel-body">
-<% isLatest = session[:sort] == "latest" %>
-<%= link_to "Latest", url_for(sort: (isLatest ? "alpha" : "latest")), class: "btn btn-default btn-sm " + (isLatest ? " active" : ""), remote: true %>
-<%= render'layouts/initials' %>
-	</div>
-</div>
-<%= will_paginate class: "center" %>
+<% content_for :latest_filter do 
+	isLatest = session[:sort] == "latest" %>
+		<%= link_to "Latest", url_for(sort: (isLatest ? "alpha" : "latest")), class: "btn btn-default btn-sm " + (isLatest ? " active" : ""), remote: true %>
+<% end %>
+<%= render'layouts/filter' %>
 
+<%= will_paginate class: "center" %>
 <table class="table table-striped authors">
 	<tr>
 		<th>Name</th>
@@ -33,6 +28,4 @@
 	</tr>
 <% end %>
 </table>
-
 <%= will_paginate class: "center" %>
-<%= render'layouts/perpage' %>

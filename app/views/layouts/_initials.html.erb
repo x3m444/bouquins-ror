@@ -1,6 +1,6 @@
 <% initials = ['0'] + ('A'..'Z').to_a %>
 <div class="center">
-	<ul class="pagination">
+	<ul class="pagination btn-sm">
 <% initials.each do |i|
 	is_cur = (i == session[:initial])
 	%>

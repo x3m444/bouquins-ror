@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<%= link_to "#filterContent", data: { toggle: "collapse" } do %>
+		<h3 class="panel-title"> Filter </h3>
+		<% end %>
+	</div>
+	<div class="panel-body collapse" id="filterContent">
+		<%= yield(:latest_filter) %>
+		<%= render'layouts/initials' %>
+		<%= render'layouts/perpage' %>
+	</div>
+</div>
