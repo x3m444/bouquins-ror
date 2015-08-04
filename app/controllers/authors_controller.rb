@@ -16,8 +16,9 @@ class AuthorsController < ApplicationController
 	end
 
 	def index
-		@authors = Author.where(query_filter).order(:sort)
-			.paginate(page: params[:page], per_page: @preference.per_page)
+		@authors = Author.where(query_filter)
+			.order(:sort)
+			.paginate(pagination)
 		@title = "Authors"
 		respond_to do |format|
 			format.html 

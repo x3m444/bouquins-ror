@@ -10,8 +10,10 @@ class BooksController < ApplicationController
 	end
 
 	def index
-		@books = Book.where(query_filter).order(sort_col)
-			.paginate(page: params[:page], per_page: @preference.per_page)
+		@books = Book .where(query_filter(Book.table_name))
+			.includes(:authors, :serie) .references(:authors, :serie)
+			.order(sort_col)
+			.paginate(pagination)
 		@title = "Books"
 		respond_to do |format|
 			format.html 

@@ -17,18 +17,23 @@ module PreferencesHelper
 		session[:preference] = @preference.to_json
 	end
 
-	def query_filter
+	def query_filter(prefix = nil)
+		sort_col = prefix ? prefix + ".sort" : "sort"
 		conditions = Array.new
 		params = Array.new
 		if @preference.initial
-			conditions.push "UPPER(sort) LIKE ?"
+			conditions.push "UPPER(#{sort_col}) LIKE ?"
 			params.push "#{@preference.initial}%"
 		end
 		if @preference.term
-			conditions.push "sort LIKE ?"
+			conditions.push "#{sort_col} LIKE ?"
 			params.push "%#{@preference.term}%"
 		end
 		[ conditions.join(" AND ") ] + params
+	end
+
+	def pagination
+		{ page: params[:page], per_page: @preference.per_page }
 	end
 
 end
