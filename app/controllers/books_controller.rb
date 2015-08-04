@@ -10,14 +10,8 @@ class BooksController < ApplicationController
 	end
 
 	def index
-		filters = initial_filter
-		if params[:s]
-			filters[0] << " AND sort like ?"
-			filters.push("%#{params[:s]}%")
-		end
-		puts filters
-		@books = Book.where(filters).order(sort_col)
-			.paginate(page: params[:page], per_page: session[:current_per_page])
+		@books = Book.where(query_filter).order(sort_col)
+			.paginate(page: params[:page], per_page: @preference.per_page)
 		@title = "Books"
 		respond_to do |format|
 			format.html 
@@ -32,7 +26,7 @@ class BooksController < ApplicationController
 
 	private
 	def sort_col
-		if session[:sort] == "latest"
+		if @preference.sort == "latest"
 			return { last_modified: :desc }
 		end
 		:sort

@@ -2,7 +2,7 @@
 <div class="center">
 	<ul class="pagination btn-sm">
 <% initials.each do |i|
-	is_cur = (i == session[:initial])
+	is_cur = (i == @preference.initial)
 	%>
 	<%= content_tag :li, class: (is_cur ? "active": nil) do %>
 		<%= link_to i, url_for(initial: ( is_cur ? "reset" : i)), remote: true %>

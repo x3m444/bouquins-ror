@@ -9,8 +9,8 @@ class SeriesController < ApplicationController
 	end
 
 	def index
-		@series = Serie.where(initial_filter).order(:sort)
-			.paginate(page: params[:page], per_page: session[:current_per_page])
+		@series = Serie.where(query_filter).order(:sort)
+			.paginate(page: params[:page], per_page: @preference.per_page)
 		@title = "Series"
 		respond_to do |format|
 			format.html 
