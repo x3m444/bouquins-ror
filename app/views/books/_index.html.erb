@@ -1,6 +1,16 @@
-<% content_for :latest_filter do 
-	isLatest = session[:sort] == "latest" %>
-		<%= link_to "Latest", url_for(sort: (isLatest ? "alpha" : "latest")), class: "btn btn-default btn-sm " + (isLatest ? " active" : ""), remote: true %>
+<% opts = { data: { url: url_for, remote: true, method: :get } }
+content_for :latest_filter do %>
+	<div class="form-group">
+		<%= label_tag "sort", "Sort by" %>
+		<label class="radio-inline">
+			<%= radio_button_tag "sort", "latest", @preference.sort == "latest",opts %>
+			Date
+		</label>
+		<label class="radio-inline">
+			<%= radio_button_tag "sort", "alpha", @preference.sort == "alpha", opts %>
+			Name
+		</label>
+	</div>
 <% end %>
 <%= render'layouts/filter' %>
 

@@ -1,20 +1,23 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<%= link_to "#filterContent", data: { toggle: "collapse" } do %>
-		<h3 class="panel-title"> Filter </h3>
+		<%= link_to "#filterContent", { class: "collapsed", data: { toggle: "collapse" } } do %>
+			<h3 class="panel-title"> 
+				<span class="glyphicon filterToggle" aria-hidden="true"/>
+				Filter
+			</h3>
 		<% end %>
 	</div>
 	<div class="panel-body collapse" id="filterContent">
 		<%= render'layouts/initials' %>
-		<%= render'layouts/perpage' %>
 		<%= yield(:latest_filter) %>
 		<%= form_tag({}, {method: :get, remote: true}) do %>
 			<div class="input-group">
 				<span class="input-group-btn">
-					<%= button_tag "Seach", class: "btn btn-default" %>
+					<%= button_tag "Search", class: "btn btn-default" %>
 				</span>
 				<%= search_field_tag(:term, @preference.term, placeholder: "Search for...", class: "form-control") %>
 			</div>
 		<% end %>
+		<%= render'layouts/perpage' %>
 	</div>
 </div>

@@ -1,6 +1,6 @@
 <% initials = ['0'] + ('A'..'Z').to_a %>
 <div class="center">
-	<ul class="pagination btn-sm">
+	<ul class="pagination pagination-sm" title="Initial letter">
 <% initials.each do |i|
 	is_cur = (i == @preference.initial)
 	%>
