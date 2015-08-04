@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  library: "Library"
+  welcome_count: "Browse %{count} books"

@@ -1,6 +1,6 @@
 <div class="center jumbotron">
-	<h1>Library</h1>
-	<h2>Browse <%= @books_count %> books</h2>
+	<h1><%= t :library %></h1>
+	<h2><%= t :welcome_count, count: @books_count %></h2>
 
 	<p>
 	<%= link_to "Books", books_path, class: "btn btn-lg btn-primary", remote: true %>

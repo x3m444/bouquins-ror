@@ -1,0 +1,4 @@
+fr:
+    hello: "Bonjour"
+    library: "Bibliothèque"
+    welcome_count: "Parcourir les %{count} livres"
