@@ -1,14 +1,14 @@
 <% opts = { data: { url: url_for, remote: true, method: :get } }
 content_for :latest_filter do %>
 	<div class="form-group">
-		<%= label_tag "sort", "Sort by" %>
+		<%= label_tag "sort", t(:sort_by) %>
 		<label class="radio-inline">
 			<%= radio_button_tag "sort", "latest", @preference.sort == "latest",opts %>
-			Date
+			<%= t :sort_by_date %>
 		</label>
 		<label class="radio-inline">
 			<%= radio_button_tag "sort", "alpha", @preference.sort == "alpha", opts %>
-			Name
+			<%= t :sort_by_name %>
 		</label>
 	</div>
 <% end %>
@@ -17,9 +17,9 @@ content_for :latest_filter do %>
 <%= will_paginate class: "center" %>
 <table class="table table-striped authors">
 	<tr>
-		<th>Name</th>
-		<th>Authors</th>
-		<th>Serie</th>
+		<th><%= t :col_book_title %></th>
+		<th><%= t :col_book_authors %></th>
+		<th><%= t :col_book_serie %></th>
 	</tr>
 <% @books.each do |book| %>
 	<tr>

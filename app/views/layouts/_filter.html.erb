@@ -3,7 +3,7 @@
 		<%= link_to "#filterContent", { class: "collapsed", data: { toggle: "collapse" } } do %>
 			<h3 class="panel-title"> 
 				<span class="glyphicon filterToggle" aria-hidden="true"/>
-				Filter
+					<%= t :filter %>
 			</h3>
 		<% end %>
 	</div>
@@ -13,9 +13,9 @@
 		<%= form_tag({}, {method: :get, remote: true}) do %>
 			<div class="input-group">
 				<span class="input-group-btn">
-					<%= button_tag "Search", class: "btn btn-default" %>
+					<%= button_tag t(:search), class: "btn btn-default" %>
 				</span>
-				<%= search_field_tag(:term, @preference.term, placeholder: "Search for...", class: "form-control") %>
+				<%= search_field_tag(:term, @preference.term, placeholder: t(:search_ph), class: "form-control") %>
 			</div>
 		<% end %>
 		<%= render'layouts/perpage' %>

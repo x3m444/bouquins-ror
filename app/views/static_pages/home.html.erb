@@ -3,9 +3,9 @@
 	<h2><%= t :welcome_count, count: @books_count %></h2>
 
 	<p>
-	<%= link_to "Books", books_path, class: "btn btn-lg btn-primary", remote: true %>
-	<%= link_to "Authors", authors_path, class: "btn btn-lg btn-primary", remote: true %>
-	<%= link_to "Series", series_path, class: "btn btn-lg btn-primary", remote: true %>
+	<%= link_to t(:books), books_path, class: "btn btn-lg btn-primary", remote: true %>
+	<%= link_to t(:authors), authors_path, class: "btn btn-lg btn-primary", remote: true %>
+	<%= link_to t(:series), series_path, class: "btn btn-lg btn-primary", remote: true %>
 	</p>
 </div>
 <div class="container-fluid" id="items">

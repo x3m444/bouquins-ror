@@ -1,5 +1,5 @@
 <div class="center">
-	<ul class="pagination pagination-sm" title="Items per page">
+	<ul class="pagination pagination-sm" title="<%= t :per_page %>">
 <% [10,20,50,100].each do |p| %>
 	<%= content_tag :li, class: (p == @preference.per_page ? "active": nil) do %>
 		<%= link_to p, url_for(per_page: p), remote: true %>

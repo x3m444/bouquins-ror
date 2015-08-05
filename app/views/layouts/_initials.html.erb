@@ -1,9 +1,8 @@
 <% initials = ['0'] + ('A'..'Z').to_a %>
 <div class="center">
-	<ul class="pagination pagination-sm" title="Initial letter">
+	<ul class="pagination pagination-sm" title="<%= t :initial_tooltip %>">
 <% initials.each do |i|
-	is_cur = (i == @preference.initial)
-	%>
+	is_cur = (i == @preference.initial) %>
 	<%= content_tag :li, class: (is_cur ? "active": nil) do %>
 		<%= link_to i, url_for(initial: ( is_cur ? "reset" : i)), remote: true %>
 	<% end %>
