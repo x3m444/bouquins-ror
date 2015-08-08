@@ -15,7 +15,7 @@
 <% end %>
 		<h2>
 			<span class="glyphicon glyphicon-user"></span>
-			<%= "Author".pluralize(@book.authors.count) %>
+			<%= t(:book_authors, count: @book.authors.count) %>
 		</h2>
 		<ul>
 			<% @book.authors.each do |author| %>
@@ -25,7 +25,7 @@
 		<% if @book.serie %>
 		<h2>
 			<span class="glyphicon glyphicon-list"></span>
-			Serie
+			<%= t :book_serie %>
 		</h2>
 		<div>
 			<%= link_to @book.serie.name, @book.serie %>
@@ -34,7 +34,7 @@
 		<% end %>
 		<h2>
 			<span class="glyphicon glyphicon-globe"></span>
-			<%= "Language".pluralize(@book.languages.count) %>
+			<%= t(:book_lang, count: @book.languages.count) %>
 		</h2>
 		<div>
 			<% @book.languages.each do |language| %>
@@ -43,26 +43,26 @@
 		</div>
 		<h2>
 			<span class="glyphicon glyphicon-tags"></span>
-			<%= "Tag".pluralize(@book.tags.count) %>
+			<%= t(:book_tag, count: @book.tags.count) %>
 		</h2>
 		<div>
 			<% @book.tags.each do |tag| %>
 			<span class="label label-info"><%= tag.name %></span>
 			<% end %>
 		</div>
-		<h2>Details</h2>
+		<h2><%= t :book_detail %></h2>
 		<ul>
 			<% if @book.pubdate %>
-			<li><strong>Publishing date</strong> <%= @book.pubdate.to_formatted_s(:date) %></li>
+			<li><strong><%= t :book_pubdate %></strong> <%= @book.pubdate.to_formatted_s(:date) %></li>
 			<% end %>
 			<% if @book.publisher %>
-			<li><strong>Publisher</strong> <%= @book.publisher.name %></li>
+			<li><strong><%= t :book_publisher %></strong> <%= @book.publisher.name %></li>
 			<% end %>
 		</ul>
 	</div>
 <% if @book.has_cover? %>
 	<div class="col-xs-12 col-md-6">
-		<%= image_tag(cover_book_path(@book), alt: "No cover", class: "img-responsive img-rounded") %>
+		<%= image_tag(cover_book_path(@book), alt: t(:no_cover), class: "img-responsive img-rounded") %>
 	</div>
 <% end %>
 </div>

@@ -1,4 +1,5 @@
 fr:
+  home: "Accueil"
   library: "Bibliothèque"
   welcome_count: "Parcourir les %{count} livres"
   books: "Livres"
@@ -6,8 +7,8 @@ fr:
   series: "Series"
   about: "A propos"
   about_descr: "Bouquins est une interface web pour le gestionnaire d'e-books calibre"
-  download: "Download"
-  initial_tooltip: "Initial letter"
+  download: "Télécharger"
+  initial_tooltip: "Initiale"
   filter: "Filtre"
   search: "Rechercher"
   search_ph: "Rechercher..."
@@ -18,3 +19,17 @@ fr:
   col_book_title: "Titre"
   col_book_authors: "Auteurs"
   col_book_serie: "Serie"
+  book_authors:
+    one: "Auteur"
+    other: "Auteurs"
+  book_serie: "Serie"
+  book_lang:
+    one: "Langue"
+    other: "Langues"
+  book_tag:
+    one: "Tag"
+    other: "Tags"
+  book_detail: "Détails"
+  book_pubdate: "Date de publication"
+  book_publisher: "Editeur"
+  no_cover: "Pas de couverture"
