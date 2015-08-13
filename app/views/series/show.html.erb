@@ -6,7 +6,7 @@
 </div>
 <h2>
 	<span class="glyphicon glyphicon-book"></span>
-	<%= "Book".pluralize(@serie.books.count) %>
+	<%= t(:serie_book, count: @serie.books.count) %>
 </h2>
 <ul>
 <% @serie.books.each do |book| %>
@@ -24,7 +24,7 @@ if authors
 %>
 <h2>
 	<span class="glyphicon glyphicon-user"></span>
-	<%= "Author".pluralize(authors.count) %>
+	<%= t(:serie_author, count: authors.count) %>
 </h2>
 <ul>
 <% authors.each do |author| %>

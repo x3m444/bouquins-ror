@@ -33,3 +33,20 @@ fr:
   book_pubdate: "Date de publication"
   book_publisher: "Editeur"
   no_cover: "Pas de couverture"
+  col_serie_name: "Nom"
+  col_serie_authors: "Auteurs"
+  col_serie_books: "Livres"
+  serie_book:
+    one: "Livre"
+    other: "Livres"
+  serie_author:
+    one: "Auteur"
+    other: "Auteurs"
+  col_author_name: "Nom"
+  col_author_books: "Livres"
+  author_book:
+    one: "Livre"
+    other: "Livres"
+  author_coauthor:
+    one: "Co-Auteur"
+    other: "Co-Auteurs"

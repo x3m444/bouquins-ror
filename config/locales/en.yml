@@ -13,6 +13,7 @@ en:
   search: "Search"
   search_ph: "Search for..."
   per_page: "Items per page"
+  sort_by: "Sort by"
   sort_by_date: "Date"
   sort_by_name: "Name"
   col_book_title: "Title"
@@ -32,3 +33,20 @@ en:
   book_pubdate: "Publishing date"
   book_publisher: "Publisher"
   no_cover: "No cover"
+  col_serie_name: "Name"
+  col_serie_authors: "Authors"
+  col_serie_books: "Books"
+  serie_book:
+    one: "Book"
+    other: "Books"
+  serie_author:
+    one: "Author"
+    other: "Authors"
+  col_author_name: "Name"
+  col_author_books: "Books"
+  author_book:
+    one: "Book"
+    other: "Books"
+  author_coauthor:
+    one: "Co-Author"
+    other: "Co-Authors"

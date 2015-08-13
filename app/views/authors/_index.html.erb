@@ -3,8 +3,8 @@
 <%= will_paginate class: "center" %>
 <table class="table table-striped authors">
 	<tr>
-		<th>Name</th>
-		<th>Books</th>
+    <th><%= t :col_author_name %></th>
+    <th><%= t :col_author_books %></th>
 	</tr>
 <% @authors.each do |author| %>
 	<tr>

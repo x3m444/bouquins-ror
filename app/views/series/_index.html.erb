@@ -3,9 +3,9 @@
 <%= will_paginate class: "center" %>
 <table class="table table-striped series">
 	<tr>
-		<th>Name</th>
-		<th>Authors</th>
-		<th>Books</th>
+    <th><%= t :col_serie_name %></th>
+    <th><%= t :col_serie_authors %></th>
+    <th><%= t :col_serie_books %></th>
 	</tr>
 <% @series.each do |serie| %>
 	<tr>
