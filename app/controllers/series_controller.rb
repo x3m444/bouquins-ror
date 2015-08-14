@@ -4,7 +4,7 @@ class SeriesController < ApplicationController
 	before_action :preferences, only: :index
 
 	def show
-		@serie = Serie.find(params[:id])
+		@serie = Serie.includes(books: :authors).references(:book).find(params[:id])
 		@title = @serie.name
 	end
 
@@ -14,7 +14,7 @@ class SeriesController < ApplicationController
 			.references(:books)
 			.order(:sort)
 			.paginate(pagination)
-		@title = "Series"
+		@title = t(:series)
 		respond_to do |format|
 			format.html 
 			format.js

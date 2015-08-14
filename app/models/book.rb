@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
 	establish_connection Rails.configuration.database_configuration["calibre"]
+  scope :in_serie, -> { order(:series_index) }
 
 	has_and_belongs_to_many :authors,
 		join_table: "books_authors_link",
