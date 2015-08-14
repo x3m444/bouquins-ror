@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-	  @title = "Home"
+	  @title = t(:home)
 	  @books_count = Book.count
   end
 
   def about
-	  @title = "About"
+	  @title = t(:about)
   end
 end

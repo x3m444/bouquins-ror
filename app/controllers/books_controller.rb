@@ -14,7 +14,7 @@ class BooksController < ApplicationController
 			.includes(:authors, :serie) .references(:authors, :serie)
 			.order(sort_col)
 			.paginate(pagination)
-		@title = "Books"
+		@title = t(:books)
 		respond_to do |format|
 			format.html 
 			format.js

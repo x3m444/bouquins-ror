@@ -19,7 +19,7 @@ class AuthorsController < ApplicationController
 		@authors = Author.where(query_filter)
 			.order(:sort)
 			.paginate(pagination)
-		@title = "Authors"
+		@title = t(:authors)
 		respond_to do |format|
 			format.html 
 			format.js
