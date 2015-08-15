@@ -44,13 +44,7 @@ class AuthorsController < ApplicationController
 	end
 
 	def authors
-		@author = Author.find(params[:id])
-		@authors = Array.new
-		@author.books.each do |b|
-			@authors.concat b.authors
-		end
-		@authors.uniq!
-		@authors.select! {|a| a != @author}
+    @authors = Author.find_by_sql(["select distinct a.* from books_authors_link bal1 left outer join books_authors_link bal2 on bal1.book = bal2.book left outer join authors a on a.id = bal2.author where bal1.author = ? and bal2. author != ?", params[:id], params[:id]])
 		respond_to do |format|
 			format.html 
 			format.js

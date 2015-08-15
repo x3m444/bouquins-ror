@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 	end
 
 	def index
-		@books = Book .where(query_filter(Book.table_name))
+		@books = Book.where(query_filter(Book.table_name))
 			.includes(:authors, :serie) .references(:authors, :serie)
 			.order(sort_col)
 			.paginate(pagination)
