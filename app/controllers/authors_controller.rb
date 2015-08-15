@@ -36,7 +36,7 @@ class AuthorsController < ApplicationController
 	end
 
 	def series
-		@author = Author.find(params[:id])
+    @series = Serie.find_by_sql(["select distinct s.* from series s left outer join books_series_link bsl on bsl.series = s.id left outer join books_authors_link bal  on bal.book = bsl.book where bal.author = ?", params[:id]])
 		respond_to do |format|
 			format.html 
 			format.js

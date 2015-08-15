@@ -1,1 +1,6 @@
-TODO
+<h2><%= t(:author_serie, count: @series.count) %></h2>
+<ul>
+<% @series.each do |s| %>
+	<li><%= link_to s.name, s %></li>
+<% end %>
+</ul>

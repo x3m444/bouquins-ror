@@ -50,6 +50,9 @@ en:
   author_coauthor:
     one: "Co-Author"
     other: "Co-Authors"
+  author_serie:
+    one: "Serie"
+    other: "Series"
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
