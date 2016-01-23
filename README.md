@@ -18,3 +18,8 @@ Licence
 =======
 
 is licensed under the terms of the BSD license.
+
+Tips
+====
+
+Assets precompile: rake assets:precompile
